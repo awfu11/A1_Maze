@@ -9,6 +9,12 @@ Implementation of the Maze project.
 In this project you’ll learn about mazes and caves, including the basic algorithms of their handling, such as: generation, rendering, solving.
 
 
+## Installation
+      make install
+
+## Uninstallation
+      make uninstall
+
 ## Eller's Algorithm
 
 Eller's algorithm creates 'perfect' mazes, having only a single path between any two cells, one row at a time. The algorithm itself is incredibly fast, and far more memory efficient than other popular algorithms (such as Prim's and Kruskal's) requiring storage proportional to only a single row. This makes it possible to create mazes of indefinite length on systems with limited memory.
