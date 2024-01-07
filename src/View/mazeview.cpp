@@ -31,8 +31,14 @@ void View::mousePressEvent(QMouseEvent* event) {
     return;
   }
 
-  pos.setX(floor((pos.x() - offset_) / (500 / mazeSize_.first)));
-  pos.setY(floor((pos.y() - offset_) / (500 / mazeSize_.second)));
+  int n = 500 / mazeSize_.first;
+  int m = 500 / mazeSize_.second;
+
+  pos.setX((pos.x() - offset_) / (m));
+  pos.setY((pos.y() - offset_) / (n));
+
+  //  pos.setX(floor((pos.x() - offset_) / (500 / mazeSize_.first)));
+  //  pos.setY(floor((pos.y() - offset_) / (500 / mazeSize_.second)));
 
   if (event->button() == Qt::LeftButton) {
     positionClicked_.first = true;
@@ -71,38 +77,37 @@ void View::MazePrintPath(QPainter& paint) {
     std::pair<double, double> from, to;
     from = {offset_ + path_.front().x * n + n / 2,
             offset_ + path_.front().y * m + m / 2};
-
-    for (auto iter = ++path_.begin(); iter != path_.end(); ++iter) {
+    for (auto iter = path_.begin(); iter != path_.end(); ++iter) {
       to = {offset_ + iter->x * n + n / 2, offset_ + iter->y * m + m / 2};
-
-      paint.drawLine(QPoint(from.second, from.first), QPoint(to.second, to.first));
-
+      paint.drawLine(QPoint(from.second, from.first),
+                     QPoint(to.second, to.first));
       from = to;
     }
   }
 }
 
+
 void View::MazePrintSelectedPosition(QPainter& paint) {
   int n = 500 / mazeSize_.first;
   int m = 500 / mazeSize_.second;
 
-  QPoint firstPos = {offset_ + firstPosition_.x() * n + 2 * n / 10,
-                     offset_ + firstPosition_.y() * m + 2 * m / 10};
-  QPoint secondPos = {offset_ + secondPosition_.x() * n + 2 * n / 10,
-                      offset_ + secondPosition_.y() * m + 2 * m / 10};
+  QPoint firstPos = {offset_ + firstPosition_.x() * m + 2 * m / 10,
+                     offset_ + firstPosition_.y() * n + 2 * n / 10};
+  QPoint secondPos = {offset_ + secondPosition_.x() * m + 2 * m / 10,
+                      offset_ + secondPosition_.y() * n + 2 * n / 10};
 
   if (positionClicked_.first) {
     paint.setPen(QPen(Qt::white, 1));
     paint.setBrush(Qt::green);
-    paint.drawRect(firstPos.x(), firstPos.y(), n - (4 * n / 10),
-                   m - (4 * m / 10));
+    paint.drawRect(firstPos.x(), firstPos.y(), m - (4 * m / 10),
+                   n - (4 * n / 10));
   }
 
   if (positionClicked_.second) {
     paint.setPen(QPen(Qt::white, 1));
     paint.setBrush(Qt::red);
-    paint.drawRect(secondPos.x(), secondPos.y(), n - (4 * n / 10),
-                   m - (4 * m / 10));
+    paint.drawRect(secondPos.x(), secondPos.y(), m - (4 * m / 10),
+                   n - (4 * n / 10));
   }
   update();
 }
