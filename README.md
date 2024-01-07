@@ -6,7 +6,7 @@ Implementation of the Maze project.
 
 ## Introduction
 
-In this project you’ll learn about mazes and caves, including the basic algorithms of their handling, such as: generation, rendering, solving.
+In this project i’ve developed the mazes and caves, including the basic algorithms of their handling, such as: generation, rendering, solving.
 
 
 ## Installation
