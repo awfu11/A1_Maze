@@ -97,7 +97,7 @@ Add the ability to show the solution to _any_ maze currently shown on the screen
 - The color of the solution line must be different from the color of the walls, and the field
 - Prepare full coverage of the maze solving module with unit-tests
 
-## Part 4. Bonus. Cave Generation
+## Part 4. Cave Generation
 
 Add cave generation [using a cellular automaton](#generation-using-a-cellular-automaton):
 - The user selects the file that describes the cave
