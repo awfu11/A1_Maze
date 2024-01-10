@@ -38,7 +38,7 @@ std::vector<std::vector<bool>> Cave::GetCave() const noexcept { return cave_; }
 
 size_t Cave::NumberOfLiveNeighbors(size_t i, size_t j) const {
   size_t number = 0;
-  std::vector<std::pair<size_t, size_t>> neighbors = {
+  std::vector<std::pair<int, int>> neighbors = {
       {i - 1, j - 1}, {i - 1, j},     {i - 1, j + 1}, {i, j - 1},
       {i, j + 1},     {i + 1, j - 1}, {i + 1, j},     {i + 1, j + 1}};
   for (const auto& it : neighbors) {
