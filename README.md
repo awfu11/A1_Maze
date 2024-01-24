@@ -2,7 +2,7 @@
 
 Implementation of the Maze project.
 
-![](materials/maze.gif)
+![](misc/maze.gif)
 
 ## Introduction
 

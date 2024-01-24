@@ -63,14 +63,6 @@ std::pair<size_t, size_t> Maze::GetWalls(size_t i, size_t j) const noexcept {
   return {rightWall_[i][j], bottomWall_[i][j]};
 }
 
-std::vector<std::vector<bool>> Maze::GetRightWall() const noexcept {
-  return rightWall_;
-}
-
-std::vector<std::vector<bool>> Maze::GetBottomWall() const noexcept {
-  return bottomWall_;
-}
-
 std::vector<Coord> Maze::SolveMaze(Coord begin, Coord end) {
   counter_ = 1;
   solveMatrix_.clear();

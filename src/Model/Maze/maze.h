@@ -26,9 +26,6 @@ class Maze {
 
   std::pair<size_t, size_t> GetWalls(size_t i, size_t j) const noexcept;
 
-  std::vector<std::vector<bool>> GetRightWall() const noexcept;
-  std::vector<std::vector<bool>> GetBottomWall() const noexcept;
-
   void SaveFile(const std::string& path) const;
 
   std::vector<Coord> SolveMaze(Coord begin, Coord end);

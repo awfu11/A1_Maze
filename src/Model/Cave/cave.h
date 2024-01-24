@@ -27,7 +27,6 @@ class Cave {
   size_t GetLength() const noexcept;
   size_t GetWidth() const noexcept;
   bool GetCell(size_t i, size_t j) const noexcept;
-  std::vector<std::vector<bool>> GetCave() const noexcept;
 
   bool Update();
 

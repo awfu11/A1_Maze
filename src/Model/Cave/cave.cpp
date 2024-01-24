@@ -34,16 +34,14 @@ size_t Cave::GetWidth() const noexcept { return width_; }
 
 bool Cave::GetCell(size_t i, size_t j) const noexcept { return cave_[i][j]; }
 
-std::vector<std::vector<bool>> Cave::GetCave() const noexcept { return cave_; }
-
 size_t Cave::NumberOfLiveNeighbors(size_t i, size_t j) const {
   size_t number = 0;
   std::vector<std::pair<int, int>> neighbors = {
       {i - 1, j - 1}, {i - 1, j},     {i - 1, j + 1}, {i, j - 1},
       {i, j + 1},     {i + 1, j - 1}, {i + 1, j},     {i + 1, j + 1}};
   for (const auto& it : neighbors) {
-    if ((it.first < 0 || it.first >= length_) ||
-        (it.second < 0 || it.second >= width_)) {
+    if ((it.first < 0 || it.first >= static_cast<int>(length_)) ||
+        (it.second < 0 || it.second >= static_cast<int>(width_))) {
       number += 1;
     } else {
       number += cave_[it.first][it.second];
