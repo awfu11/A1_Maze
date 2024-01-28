@@ -120,7 +120,7 @@ void View::MazePrint(QPainter& paint) {
   paint.setBrush(Qt::black);
 
   if (init_) {
-    paint.drawRect(offset_, offset_, n * mazeSize_.first, m * mazeSize_.second);
+    paint.drawRect(offset_, offset_, m * mazeSize_.second, n * mazeSize_.first);
   }
 
   for (size_t i = 0; i < mazeSize_.first; ++i) {
