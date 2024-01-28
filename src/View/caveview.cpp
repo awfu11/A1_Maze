@@ -3,12 +3,9 @@
 
 namespace awfl {
 void View::CaveInitConnections() {
-  // connect(ui_->birthLimitSpinBox, &QSpinBox::valueChanged, this, [&](int value) { emit CaveSetBirthLimit(value); });
-    connect(ui_->birthLimitSpinBox, &QSpinBox::valueChanged, this, &View::CaveSetBirthLimit);
+  connect(ui_->birthLimitSpinBox, &QSpinBox::valueChanged, this, &View::CaveSetBirthLimit);
 
   connect(ui_->deadLimitSpinBox, &QSpinBox::valueChanged, this, &View::CaveSetDeathLimit);
-  
-  // connect(ui_->deadLimitSpinBox, &QSpinBox::valueChanged, this, [&](int value) { emit CaveSetDeathLimit(value); });
 
   connect(ui_->chanceSpinBox, &QDoubleSpinBox::valueChanged, this, [&]() {
     emit CaveSetProbability(ui_->chanceSpinBox->value() / 100.0);
